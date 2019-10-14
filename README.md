@@ -39,6 +39,19 @@ A REST Api desenvolvida possui os seguintes métodos:
 **404 - Not Found**: Devolve uma mensagem avisando que o funcionário não foi encontrado caso a api não encontre um funcionário com o id informado.  
 **400 - Bad Request**: Devolve uma mensagem de erro se o id provido não for um valor válido.  
 
+### Modelo de resposta GET
+
+```json
+{
+  "id":1,
+  "name":"Nome do funcionário",
+  "email":"email@email.com",
+  "job":"Cargo",
+  "salary":1000,
+  "hiringDate":"2019-10-14T15:19:37.5137032"
+}
+```
+
 ### Modelo de requisição POST/PUT
 
 Exemplo de json para POST/PUT:
@@ -66,6 +79,7 @@ Exemplo de json para POST/PUT:
   * Utiliza até duas casas decimais  
 
 Todos os campos são obrigatórios.  
+"hiringDate" (Data de contratação) é gerada automaticamente pelo backend da Api no momento de cadastro, utilizando **DateTime.Now**, portanto não é utilizado para POST/PUT.
 
 ## Painel Administrativo / Interface
 * Possui duas páginas:
