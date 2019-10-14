@@ -21,9 +21,19 @@ namespace OrbiumDesafioRH.Services.Implementations
             _client = client;
         }
 
-        public Task<HttpEmployeeResponse> Delete(int id, string url)
+        public async Task<HttpEmployeeResponse> Delete(int id, string url)
         {
-            throw new System.NotImplementedException();
+            var response = await _client.DeleteAsync(url + "/" + id);
+            if (response.IsSuccessStatusCode)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                var employee = JsonConvert.DeserializeObject<Employee>(json);
+                return new HttpEmployeeResponse(employee);
+            }
+            else
+            {
+                return new HttpEmployeeResponse("Não foi possível deletar o funcionário requisitado.");
+            }
         }
 
         public async Task<HttpEmployeeListResponse> Get(string url)
