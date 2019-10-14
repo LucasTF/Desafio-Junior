@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model OrbiumDesafioRH.Resources.EmployeeResource
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="~/lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Orbium - Desafio Júnior RH - Home</title>
+</head>
+<body>
+    <header class="navbar navbar-dark bg-dark border-bottom">
+        <h1 class="navbar-brand mb-0"><i class="icon-logo mr-2 fas fa-tools"></i>Painel de Funcionários RH - Home</h1>
+    </header>
+
+    <section>
+        <div class="container">
+            <header class="text-light bg-dark border-bottom rounded-top mt-3">
+                <h2 class="text-left h4 p-2 m-auto"><i class="mx-2 fas fa-user-plus"></i>Registrar funcionário</h2>
+            </header>
+            <div class="text-dark bg-light">
+                <form id="employeeForm" asp-controller="Rh" asp-action="Index" method="POST">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group px-3">
+                        <label class="pt-2" for="nameInput">Nome Completo</label>
+                        <input class="form-control" asp-for="Name" name="name" id="nameInput" placeholder="Nome completo">
+                        <span asp-validation-for="Name" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group px-3">
+                        <label class="pt-2" for="emailInput">Email</label>
+                        <input class="form-control" asp-for="Email" name="email" id="emailInput" placeholder="funcionario@email.com">
+                        <span asp-validation-for="Email" class="small text-danger"></span>
+                    </div>
+                    <div class="form-group px-3">
+                        <div class="d-flex">
+                            <div class="flex-grow-1 pr-1">
+                                <label class="pt-2" for="jobInput">Cargo</label>
+                                <input class="form-control" asp-for="Job" name="job" id="jobInput" placeholder="Desenvolvedor">
+                                <span asp-validation-for="Job" class="small text-danger"></span>
+                            </div>
+                            <div class="flex-grow-1 pl-1">
+                                <label class="pt-2" for="salaryInput">Salário</label>
+                                <input class="form-control" asp-for="Salary" name="salary" data-val-number="Sal&#xE1;rio precisa ser um n&#xFA;mero." id="salaryInput" placeholder="3500,00">
+                                <span asp-validation-for="Salary" class="small text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <button class="btn btn-success mx-3 my-2" type="submit">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        @await Component.InvokeAsync("EmployeeTable")
+    </section>
+
+    <script src="https://kit.fontawesome.com/48b9e8a448.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+    <script src="~/js/request.js"></script>
+    <script src="~/js/validation.js"></script>
+    <script src="~/js/index.js"></script>
+</body>
+</html>

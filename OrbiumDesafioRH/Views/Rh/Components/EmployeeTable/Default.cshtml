@@ -1,0 +1,57 @@
+﻿@model IEnumerable<OrbiumDesafioRH.Models.Employee>
+
+    <div class="container">
+        <header class="text-light bg-dark border-bottom rounded-top mt-3">
+            <h2 class="text-left h4 p-2 m-auto"><i class="mx-2 fas fa-users"></i>Funcionários</h2>
+        </header>
+        <div class="text-dark bg-light pt-3">
+            <div class="table-responsive-lg">
+                <table id="employeeTable" class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Salário</th>
+                            <th scope="col">Data de ingresso</th>
+                            <th scope="col">Operações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        @for (var i = 0; i < Model.Count(); i++)
+                        {
+                            <tr id="tr_@Model.ElementAt(i).Id">
+                                <td>@(i + 1)</td>
+                                <td>@Model.ElementAt(i).Name</td>
+                                <td>@Model.ElementAt(i).Email</td>
+                                <td>@Model.ElementAt(i).Job</td>
+                                <td>@Model.ElementAt(i).Salary</td>
+                                <td>@Model.ElementAt(i).HiringDate.ToShortDateString()</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-link" onclick="location.href = '@Url.Action("Edit", "Rh", new { id = Model.ElementAt(i).Id })';">
+                                        Editar
+                                    </button>
+                                    |
+                                    <button type="button" class="btn btn-sm btn-link" onclick="deleteTableRow(@Model.ElementAt(i).Id)">
+                                        Deletar
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Cargo</th>
+                            <th scope="col">Salário</th>
+                            <th scope="col">Data de ingresso</th>
+                            <th scope="col">Operações</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
