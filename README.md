@@ -1,5 +1,6 @@
 # RH Rest Api
-Projeto de REST Api para o processo seletivo para desenvolvedor C# Júnior na Orbium Soluções.
+Rest API para recursos humanos desenvolvida para demonstrar meus conhecimentos com .NET Core e ASP.NET Core.
+Este projeto foi desenvolvido como parte de um desafio para uma vaga de desenvolvedor júnior C#.
 
 ## O que foi realizado
 Conforme proposto pelos requisitos do projeto, foram implementados uma REST Api capaz de visualizar, adicionar, editar e remover (CRUD) funcionários de um sistema de Rh e um painel administrativo capaz de consumir essa Api;  
