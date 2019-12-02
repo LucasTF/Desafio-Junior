@@ -1,4 +1,4 @@
-# Desafio Júnior
+# RH Rest Api
 Projeto de REST Api para o processo seletivo para desenvolvedor C# Júnior na Orbium Soluções.
 
 ## O que foi realizado
