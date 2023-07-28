@@ -96,7 +96,7 @@ Todos os campos são obrigatórios.
   * SQLite
 * Back End:
   * C#
-  * .NET Core 3.0
+  * .NET 6.0
   * ASP.NET Core MVC
   * Entity Framework Core
 * Front End:
